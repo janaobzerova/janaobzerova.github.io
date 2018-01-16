@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link href="public/ico/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+    <title>Codestyle pre web tipsport.cz/sk</title>
+
+    <link rel="stylesheet" href="code-guide.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|PT+Mono&subset=latin,cyrillic">
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="container">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" height="90" width="auto" data-name="Layer 1" viewBox="0 0 100 125" x="0px" y="0px">
+            <path d="M8.77,94.89H66.34a7.28,7.28,0,0,0,7.27-7.27V78.39a2.5,2.5,0,0,0-5,0v9.23a2.27,2.27,0,0,1-2.27,2.27H8.77A2.27,2.27,0,0,1,6.5,87.63V31.56H21.93a6,6,0,0,0,6-6V10.11H66.34a2.27,2.27,0,0,1,2.26,2.26V25.44a2.5,2.5,0,0,0,5,0V12.37a7.27,7.27,0,0,0-7.26-7.26H27.6a7.63,7.63,0,0,0-5.44,2.25L3.76,25.77A7.64,7.64,0,0,0,1.5,31.21V87.63A7.27,7.27,0,0,0,8.77,94.89ZM23,13.64V25.53a1,1,0,0,1-1,1H10Z" fill="#fff"/>
+            <path d="M56.06,32.6a2.5,2.5,0,1,0,0-5H39.68a2.5,2.5,0,0,0,0,5Z" />
+            <path d="M16,42.48A2.5,2.5,0,0,0,18.5,45H54.63a2.5,2.5,0,0,0,0-5H18.5A2.5,2.5,0,0,0,16,42.48Z" fill="#fff"/>
+            <path d="M42.24,54.86a2.5,2.5,0,0,0-2.5-2.5H18.5a2.5,2.5,0,1,0,0,5H39.74A2.5,2.5,0,0,0,42.24,54.86Z" fill="#fff"/>
+            <path d="M35.18,67.24a2.5,2.5,0,0,0-2.5-2.5H18.5a2.5,2.5,0,1,0,0,5H32.68A2.5,2.5,0,0,0,35.18,67.24Z" fill="#fff"/>
+            <path d="M93.14,45.24,95.29,43a11.1,11.1,0,0,0,.13-15.47,10.82,10.82,0,0,0-7.75-3.23h0a10.8,10.8,0,0,0-7.75,3.28L48.55,59.17A37.55,37.55,0,0,0,38.26,79.9a4.69,4.69,0,0,0,4.64,5.39,4.61,4.61,0,0,0,.82-.07A37.53,37.53,0,0,0,64.14,74.39L88.33,50.07l3.62,3.52L77.63,68.29a2.5,2.5,0,1,0,3.58,3.49L95.67,56.93a4.79,4.79,0,0,0-.1-6.78l-3.73-3.62,1.27-1.27ZM60.58,70.89a32.57,32.57,0,0,1-17.31,9.32,32.55,32.55,0,0,1,8.84-17.54L83.45,31.1a5.85,5.85,0,0,1,4.2-1.78h0a5.86,5.86,0,0,1,4.19,1.75,6.07,6.07,0,0,1-.16,8.46l-2.14,2.2Z" fill="#fff"/>
+            <path d="M18.5,77.11a2.5,2.5,0,1,0,0,5H30a2.5,2.5,0,1,0,0-5Z" fill="#fff"/>
+          </svg>
+        </div>
+        <h1>HTML &amp; CSS &amp; LESS</h1>
+        <p class="lead">Codestyle pre web tipsport.cz/sk<br><em>"Create design systems, not pages"</em></p>
+      </div>
+    </header>
+
+    <div class="heading" id="toc">
+      <h2>Obsah</h2>
+    </div>
+    <div class="section toc">
+      <div class="col">
+        <h4><a href="#css">CSS &amp; LESS</a></h4>
+        <ul>
+          <li><a href="#css-syntax">CSS syntax</a></li>
+          <li><a href="#css-deklaracie">Poradie deklarácií</a></li>
+          <li><a href="#css-import">Importovanie @import/include</a></li>
+          <li><a href="#css-media-queries">Media query deklarovanie</a></li>
+          <li><a href="#css-prefix-vlastnosti">Prefix- vlastností</a></li>
+          <li><a href="#css-kratke-notacie">Krátke notácie</a></li>
+          <li><a href="#css-zanorovanie">Zanorovanie v LESSu/SASSu</a></li>
+          <li><a href="#css-operacie">Matematické operácie v LESSe/SASSu</a></li>
+          <li><a href="#css-nazvy">Názvy</a></li>
+          <li><a href="#css-struktura">Štruktúra</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4><a href="#html">HTML</a></h4>
+        <ul>
+          <li><a href="#html-syntax">Syntax</a></li>
+          <li><a href="#html-poradie-atributov">Poradie atribútov</a></li>
+          <li><a href="#html-doctype">HTML5 doctype</a></li>
+          <li><a href="#jazyk">Atribút jazyka</a></li>
+          <li><a href="#html-ie-compatibility-mode">IE compatibility mode</a></li>
+          <li><a href="#html-pristupnost">WAI-ARIA</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="section" id="golden-rule">
+      <div class="col">
+        <h2>Zlaté základné pravidlá</h2>
+        <p>S čímkoľvek nesúhlasite, ruku horu.</p>
+      </div>
+      <div class="col">
+        <blockquote>
+          <p>Každý riadok kódu by mal vyzerať akoby ho písal jeden človek, napriek tomu, že prispievateľov je niekoľko.</p>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="heading" id="css">
+      <h2>CSS &amp; LESS</h2>
+    </div>
+
+    <div class="section" id="css-syntax">
+      <div class="col">
+        <h3>Syntax</h3>
+        <ul>
+          <li>Jednotlivé selektory píšte na nové riadky.</li>
+          <li>Pred zloženou zátvorku nechávajte jednu medzeru.</li>
+          <li>Uzatváraciu zátvorku nechávajte na samostatnom riadku.</li>
+          <li>Nechajte jednu medzeru za <code>:</code> v každej deklarácií.</li>
+          <li>Každá deklarácia by mala mať svoj vlastný riadok, šetrenie priestoru prenechajte gulpu.</li>
+          <li>V deklarácií, ktorá obsahuje čiarky nechávajte po nej medzeru, naopak u tých s bodkami medzeru nenechávajte.</li>
+          <li>Nepoužívajte zbytočné nuly (<code>opacity: .5</code> namiesto <code>opacity: 0.5</code> prípadne <code>-.5px</code> namiesto <code>-0.5px</code>).</li>
+          <li>Používajte lowercase v deklaráciach (<code>#fff</code> namiesto <code>#FFF</code>).</li>
+          <li>Farby používajte v rgb prípadne rgba formáte.</li>
+          <li>Neopakujte názov selectoru, používajte namiesto toho <code>&amp;</code>.</li>
+          <li>Nepoužívajte jednotky pri nulových hodnotách <code>margin: 0;</code> namiesto <code>margin: 0px;</code>.</li>
+        </ul>
+      </div>
+      <div class="col">
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/* CSS */</span>
+<span class="nc">.selector</span><span class="o">,</span> <span class="nc">.selector__secondary</span><span class="o">,</span> <span class="nc">.selector</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">text</span><span class="o">]</span> <span class="p">{</span>
+  <span class="nl">padding</span><span class="p">:</span><span class="m">15px</span><span class="p">;</span>
+  <span class="nl">margin</span><span class="p">:</span><span class="m">0px</span> <span class="m">0px</span> <span class="m">15px</span><span class="p">;</span>
+  <span class="nl">background-color</span><span class="p">:</span><span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.5</span><span class="p">);</span>
+  <span class="nl">box-shadow</span><span class="p">:</span><span class="m">0px</span> <span class="m">1px</span> <span class="m">2px</span> <span class="m">#CCC</span><span class="p">,</span><span class="nb">inset</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">0</span> <span class="m">#FFFFFF</span>
+<span class="p">}</span>
+
+<span class="c">/* Vylepšené CSS */</span>
+<span class="nc">.selector </span><span class="o">{</span>
+  <span class="nc">&amp;__secondary</span><span class="o">,</span>
+  <span class="nc">&amp;</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s1">"text"</span><span class="o">]</span> <span class="p">{</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">15px</span><span class="p">;</span>
+    <span class="nl">margin-bottom</span><span class="p">:</span> <span class="m">15px</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">.5</span><span class="p">);</span>
+    <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">2px</span> <span class="m">#ccc</span><span class="p">,</span> <span class="nb">inset</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">0</span> <span class="m">#fff</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+      </div>
+    </div>
+
+    <div class="section" id="css-deklaracie">
+      <div class="col">
+        <h3>Poradie deklarácií</h3>
+        <p>Nemusíte dodržiavať poradie deklarácií, ale snažte sa významové bloky držať pokope.</p>
+        <ul>
+          <li>Pozicovanie</li>
+          <li>Box model</li>
+          <li>Typografia</li>
+          <li>Vizuálna stránka</li>
+        </ul>
+        <p>Osobne som srab a nie som si istá, či je <code>color</code> typografia alebo vizuálna stránka, takže tieto dva body držím vždy pokope :)</p>
+      </div>
+      <div class="col">
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.a-atom</span> <span class="p">{</span>
+  <span class="c">/* Pozicovanie */</span>
+  <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
+  <span class="nl">top</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">right</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">bottom</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">left</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">z-index</span><span class="p">:</span> <span class="m">100</span><span class="p">;</span>
+  <span class="c">/* Box model */</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+  <span class="nl">float</span><span class="p">:</span> <span class="nb">right</span><span class="p">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">34px</span><span class="p">;</span>
+  <span class="nl">margin-top</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+  <span class="nl">overflow</span><span class="p">:</span> <span class="nb">hidden</span><span class="p">;</span>
+  <span class="nl">clear</span><span class="p">:</span> <span class="nb">both</span><span class="p">;</span>
+  <span class="c">/* Typografia */</span>
+  <span class="nl">font</span><span class="p">:</span> <span class="nb">normal</span> <span class="m">13px</span> <span class="s1">"Helvetica Neue"</span><span class="p">,</span> <span class="nb">sans-serif</span><span class="p">;</span>
+  <span class="nl">line-height</span><span class="p">:</span> <span class="m">1.5</span><span class="p">;</span>
+  <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#333</span><span class="p">;</span>
+  <span class="c">/* Vizuálna stránka */</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="m">#f5f5f5</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="m">#e5e5e5</span><span class="p">;</span>
+  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">3px</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+      </div>
+    </div>
+
+    <div class="section" id="css-import">
+      <div class="col">
+        <h3>Importovanie <code>@import/include</code></h3>
+        <p>V novom formáte je urobené globálne includovanie less súborov, nie je potrebné ich pridávať ručne.</p>
+        <p>Farebné/témovské rozdelenie je na základe zložky color, kde je pre každý main less súbor nadefinovaný správny import.</p>
+      </div>
+      <div class="col">
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="s1">@env:</span> Tipsport;
+<span class="s1">@envDir:</span> tipsport;
+<span class="nl">@import</span> <span class="nc">"Imports"</span>;
+
+<span class="c">// Atomic Design</span>
+<span class="nl">@import</span> <span class="nc">"atom/**/*"</span>; <span class="c">/* hromadny import vsetkych atomov */</span>
+<span class="nl">@import</span> <span class="nc">"molecule/**/*"</span>; <span class="c">/* hromadny import vsetkych molekul */</span>
+<span class="nl">@import</span> <span class="nc">"organism/**/*"</span>; <span class="c">/* hromadny import vsetkych organizmov */</span>
+<span class="nl">@import</span> <span class="nc">"template/**/*"</span>; <span class="c">/* hromadny import vsetkych sablon */</span>
+<span class="nl">@import</span> <span class="nc">"page/**/*"</span>; <span class="c">/* hromadny import vsetkych stranok */</span>
+
+<span class="c">//SMACSS</span>
+<span class="nl">@import</span> <span class="nc">"state/**/*"</span>; <span class="c">/* hromadny import vsetkych stavov */</span>
+<span class="nl">@import</span> <span class="nc">"color/tipsport/**/*"</span>; <span class="c">/* import barev/theme pro tipsport */</span></code></pre></figure>
+      </div>
+    </div>
+
+    <div class="section" id="css-media-queries">
+      <div class="col">
+        <h3>Media query deklarovanie</h3>
+        <p>Veci k responzivu píšte vždy k aktuálnemu selektoru, nenechávajte si ho na koniec súboru, či do extra súboru.</p>
+        <p>Media query hodnoty sa snažte udávať ako premennú a držať ich na rozumnom počte a rozdielu.</p>
+        <p><em>Aktuálne je na webtipe definovaných 22 breakpointov a rozhodne nie rozumne :)</em></p>
+        <p>V prípade, že používate <code>@media</code>, snažte sa definovať deklarácie na základe mobile first a použiť <code>min-width</code>.</p>
+      </div>
+      <div class="col">
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.selector</span> <span class="p">{</span>
+  <span class="err">...</span>
+
+  <span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">480px</span><span class="p">)</span> <span class="p">{</span>
+    <span class="err">...</span>
+  <span class="p">}</span>
+
+  <span class="nc">&amp;__element</span> <span class="p">{</span>
+    <span class="err">...</span>
+
+    <span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">480px</span><span class="p">)</span> <span class="p">{</span>
+      <span class="err">...</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c">/* Ako to vyzerá u nás? */</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">401px</span><span class="p">) and (</span><span class="n">max-width</span><span class="p">:</span> <span class="m">600px</span><span class="p">) {}</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">1151px</span><span class="p">) and (</span><span class="n">max-width</span><span class="p">:</span> <span class="m">1250px</span><span class="p">) {}</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">1025px</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">1045px</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="p">:</span> <span class="m">400px</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="p">:</span> <span class="m">425px</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="p">:</span> <span class="m">768px</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="p">:</span> <span class="m">800px</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="p">:</span> <span class="m">1024px</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="p">:</span> <span class="m">1100px</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="p">:</span> <span class="m">1130px</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="p">:</span> <span class="m">1135px</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="p">:</span> <span class="m">1140px</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="p">:</span> <span class="m">1150px</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="p">:</span> <span class="m">1151px</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="p">:</span> <span class="m">1200px</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="p">:</span> <span class="m">1224px</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="p">:</span> <span class="m">1230px</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="p">:</span> <span class="m">1260px</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="p">:</span> <span class="m">1279px</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="p">:</span> <span class="m">1360px</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="p">:</span> <span class="m">1365px</span><span class="p">)</span> <span class="p">{}</span></code></pre></figure>
+      </div>
+    </div>
+
+    <div class="section" id="css-prefix-vlastnosti">
+      <div class="col">
+        <h3>Prefix- vlastností</h3>
+        <p>O to sa stará gulp, nie je potreba ich písať.</p>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+
+    <div class="section" id="css-kratke-notacie">
+      <div class="col">
+        <h3>Krátke notácie</h3>
+        <p>Používajte skrátený zápis, on vás k tomu bude nútiť i gulp. Príklady:</p>
+        <ul>
+          <li><code>flex</code></li>
+          <li><code>animation</code></li>
+          <li><code>padding</code></li>
+          <li><code>margin</code></li>
+          <li><code>font</code></li>
+          <li><code>background</code></li>
+          <li><code>border</code></li>
+          <li><code>border-radius</code></li>
+        </ul>
+      </div>
+      <div class="col">
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/* CSS */</span>
+<span class="nc">.selector</span> <span class="p">{</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="sx">url("image.jpg")</span><span class="p">;</span>
+  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">3px</span> <span class="m">3px</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* Vylepšené CSS */</span>
+<span class="nc">.selector</span> <span class="p">{</span>
+  <span class="nl">margin-bottom</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+  <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url("image.jpg")</span><span class="p">;</span>
+  <span class="nl">border-top-left-radius</span><span class="p">:</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="nl">border-top-right-radius</span><span class="p">:</span> <span class="m">3px</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+      </div>
+    </div>
+
+    <div class="section" id="css-zanorovanie">
+      <div class="col">
+        <h3>Zanorovanie v LESSu/SASSu</h3>
+        <p>BEM podporuje flat štruktúru, takže zanorovanie ako také neexistuje, aj keď to na prvý pohľad tak vyzerá.</p>
+        <ul>
+          <li>Blok</li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">Pseudo-triedy</a> (tj. <code>:hover</code>/<code>:focus</code>/<code>:active</code>/<code>:link</code>/<code>:visited</code>/<code>:empty</code>/<code>:not</code>)</li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">Pseudo-elementy</a> (tj. <code>:before</code>/<code>:after</code>/<code>:placeholder</code>/<code>:first-line</code>)</a></li>
+          <li>Modifikátor</li>
+          <li>Element</li>
+        </ul>
+      </div>
+      <div class="col">
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.blok</span> <span class="p">{</span>
+  <span class="err">...</span>
+
+  <span class="nc">&amp;:pseudoTriedy</span> <span class="p">{</span>
+    <span class="err">...</span>
+  <span class="p">}</span>
+
+  <span class="nc">&amp;:pseudoElementy</span> <span class="p">{</span>
+    <span class="err">...</span>
+
+    <span class="nc">&amp;:pseudoTriedy</span> <span class="p">{</span>
+      <span class="err">...</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="nc">&amp;--modifikator</span> <span class="p">{</span>
+    <span class="err">...</span>
+
+    <span class="nc">&amp;:pseudoTriedy</span> <span class="p">{</span>
+      <span class="err">...</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="nc">&amp;__element</span> <span class="p">{</span>
+    <span class="err">...</span>
+
+    <span class="nc">&amp;--modifikator</span> <span class="p">{</span>
+      <span class="err">...</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+      </div>
+    </div>
+
+    <div class="section" id="css-operacie">
+      <div class="col">
+        <h3>Matematické operácie v LESSe/SASSu</h3>
+        <p>Pre lepšiu čitelnosť operácie oddeľujte zátvorkami, aj keď to nie je z matematického hľadiska nutné.</p>
+      </div>
+      <div class="col">
+<figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">/* CSS */
+</span><span class="nc">.element</span> <span class="p">{</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">10px</span> <span class="m">0</span> <span class="o">@</span><span class="n">variable</span><span class="o">*</span><span class="m">2</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">/* Vylepšené CSS */
+</span><span class="nc">.element</span> <span class="p">{</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">10px</span> <span class="nf">0</span> <span class="p">(</span><span class="o">@</span><span class="n">variable</span> <span class="o">*</span> <span class="m">2</span><span class="p">)</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+      </div>
+    </div>
+
+    <div class="section" id="css-nazvy">
+      <div class="col">
+        <h3>Názvy</h3>
+        <ul>
+          <li>Používajte pri pomenovaní princípy <a href="http://getbem.com/introduction/">BEM-u</a></li>
+          <li>Používajte <code>.class</code> namiesto <code>#id</code>.</li>
+          <li>Názvy tried začínajte prefixom podľa zaradenia (a- pre atom, m- pre molekulu, o- pre organizmus, t- pre sablonu, p- pre stranku)</li>
+          <li>Používajte selectory vo formáte camelCase, pomlčky používajte pre prefixy (tj. <code>.a-leafOak</code>, <code>.m-boughOak</code> a <code>.o-treeOak</code>).</li>
+          <li>Nepoužívajte názvy elementov v selektoroch.</li>
+          <li>Nepomenúvajte selektory podľa vzhľadu (napr. farba, <code>.m-boxBlueLight</code>), výnimku tvoria základné atomické jednotky (napr. <code>.a-text--left</code>).</li>
+          <li>Používajte <code>.js-*</code> selektor pre označenie chovania ovplyvneného javascriptom, prefix js- sa nesmie objaviť v style súbore.</li>
+          <li>Pomenuvávajte elementy, čo najkratšie, ale pritom zrozumyseľne. (tj <code>.btn</code> namiesto <code>.button</code> pre <em>button</em>, ale <code>.s</code> by mohlo znamenať čokoľvek.)</li>
+          <li>Mixiny nazývajte prvným veľkým písmenom (pre jednoduché rozlíšenie od class).</li>
+        </ul>
+      </div>
+      <div class="col">
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/* CSS */</span>
+<span class="nc">.a-t</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>
+<span class="nc">.a-red</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>
+<span class="nc">.m-header</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>
+<span class="nt">table</span><span class="nc">.a-custom</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>
+
+<span class="c">/* Vylepšené CSS */</span>
+<span class="nc">.a-tweet</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>
+<span class="nc">.a-warning</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>
+<span class="nc">.m-tweetHeader</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>
+<span class="nc">.a-custom</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span></code></pre></figure>
+      </div>
+    </div>
+
+    <div class="section" id="css-struktura">
+      <div class="col">
+        <h3>Štruktúra</h3>
+        <ul>
+          <li>Rozpadávajte design na čo najmenšie <a href="https://webdesign.tutsplus.com/articles/structuring-sass-saying-goodbye-to-atomic-design-ambiguity--cms-26679">stavebné jednotky</a> a ukladajte ich do príslušných zložiek.</li>
+          <li>Obecné definície použiteľné i pre druhých vkládajte do <code>Commons.less</code></li>
+          <li>Používajte názvy súborov vo formáte PascalCase (<code>StyleSpritesChance.less</code>).
+          <li>Obecné stavové definície vkládať do zložky <code>state/State.less</code>, stavy začínajú slovesom (is/has). (tj. <code>.isHidden</code>, <code>.isBold</code>, <code>.isActive</code>)</li>
+          <li>Premenné definujte na jednom mieste a to v súbore <code>Variables.less</code>.</li>
+          <li>When using multiple CSS files, break them down by component instead of page. Pages can be rearranged and components moved.</li>
+        </ul>
+      </div>
+      <div class="col">
+
+      </div>
+    </div>
+
+    <div class="heading" id="html">
+      <h2>HTML</h2>
+    </div>
+
+    <div class="section" id="html-syntax">
+      <div class="col">
+        <h3>Syntax</h3>
+        <ul>
+          <li>Zanorené elementy by mali byť odsadené jedným tabom (soft/hard).</li>
+          <li>Vždy používajte dvojité uvodzovky v atribútoch.</li>
+        </ul>
+      </div>
+      <div class="col">
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+  <span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+      <span class="nt">&lt;title&gt;</span>Page title<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"images/company-logo.png"</span> <span class="na">alt=</span><span class="s">"Company"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"hello-world"</span><span class="nt">&gt;</span>Hello, world!<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+  <span class="nt">&lt;/html&gt;</span></code></pre></figure>
+      </div>
+    </div>
+
+    <div class="section" id="html-doctype">
+      <div class="col">
+        <h3>HTML5 doctype</h3>
+        <p>Snažte sa používať na všetkých stránkach najjednoduchší funkčný zápis.</p>
+      </div>
+      <div class="col">
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></figure>
+      </div>
+    </div>
+
+    <div class="section" id="jazyk">
+      <div class="col">
+        <h3>Atribút jazyka</h3>
+        <p>Nezabúdajte uvádzať jazykový kód.</p>
+        <p>Ak si nie ste istý kódom, vyhľadajte si ho v <a href="http://reference.sitepoint.com/html/lang-codes">zozname dvojpísmenkových skratiek</a>.</p>
+      </div>
+      <div class="col">
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"sk"</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- tltr --&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></figure>
+      </div>
+    </div>
+
+    <div class="section" id="html-ie-compatibility-mode">
+      <div class="col">
+        <h3>IE compatibility mode</h3>
+        <p>Pre IE 8, 9, 10, 11 je stále nutné držať pri živote <code>&lt;meta&gt;</code> tag, v ktorom je špecifikovaná verzia IE prípadne nového lepšieho prehliadača.</p>
+        <p>Musí to byť prvý meta tag v head.</p>
+      </div>
+      <div class="col">
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"X-UA-Compatible"</span> <span class="na">content=</span><span class="s">"IE=Edge,chrome=1"</span><span class="nt">&gt;</span></code></pre></figure>
+      </div>
+    </div>
+
+    <div class="section" id="html-pristupnost">
+      <div class="col">
+        <h3>WAI-ARIA</h3>
+        <p>Pracujete na nejakej novej veci? Skúste použiť aspoň základné tagy z wai-aria, postihnutý ľudia vám budú povďačný a toľko námahy to zas nestojí.</p>
+      </div>
+      <div class="col">
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+  <span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+      <span class="nt">&lt;title&gt;</span>Page title<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+      <span class="nt">&lt;div <span class="na">role=</span><span class="s">"main"</span>&gt;</span>
+        <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"hello-world"</span><span class="nt">&gt;</span>Hello, world!<span class="nt">&lt;/h1&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+  <span class="nt">&lt;/html&gt;</span></code></pre></figure>
+      </div>
+    </div>
+
+    <div class="section" id="html-poradie-atributov">
+      <div class="col">
+        <h3>Poradie atribútov</h3>
+        <p>HTML atribúty by mali byť písane v ľahko čitateľnom poradí.</p>
+        <ul>
+          <li><code>class</code></li>
+          <li><code>id</code>, <code>name</code></li>
+          <li><code>src</code>, <code>for</code>, <code>type</code>, <code>href</code>, <code>value</code></li>
+          <li><code>data-*</code></li>
+          <li><code>title</code>, <code>alt</code></li>
+          <li><code>role</code>, <code>aria-*</code></li>
+        </ul>
+        <p>Class je prvá z toho dovodu, že je to najviac používaný prvok komponent. Id je zase najviac špecifické pre daný element.</p>
+        <p>U class by mala byť "js-*" prvá, následne podľa štruktúry v atomickom designe (aby prebili vlastnosti).</p>
+      </div>
+      <div class="col">
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"js-link a-link m-link o-link t-link p-link ..."</span> <span class="na">id=</span><span class="s">"..."</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-toggle=</span><span class="s">"modal"</span><span class="nt">&gt;</span>
+  Odkaz na web
+<span class="nt">&lt;/a&gt;</span>
+
+<span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form__control"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">value=</span><span class="s">""</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">alt=</span><span class="s">"..."</span><span class="nt">&gt;</span></code></pre></figure>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>Made with &#10084; by <a href="mailto:jana.obzerova@tipsport.cz">JOb</a>.</p>
+    </footer>
+  </body>
+</html>
