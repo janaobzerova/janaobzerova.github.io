@@ -35,6 +35,18 @@
     </div>
     <div class="section toc">
       <div class="col">
+        <h4><a href="#atomic">ATOMIC</a></h4>
+        <ul>
+          <li><a href="#preco-atomicky-design">Prečo používať atomický design?</a></li>
+          <li><a href="#atom">Atom</a></li>
+          <li><a href="#molecule">Molekula</a></li>
+          <li><a href="#organism">Organizmus</a></li>
+          <li><a href="#template">Šablony</a></li>
+          <li><a href="#page">Stránky</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
         <h4><a href="#css">CSS &amp; LESS</a></h4>
         <ul>
           <li><a href="#css-syntax">CSS syntax</a></li>
@@ -49,6 +61,7 @@
           <li><a href="#css-struktura">Štruktúra</a></li>
         </ul>
       </div>
+
       <div class="col">
         <h4><a href="#html">HTML</a></h4>
         <ul>
@@ -62,7 +75,6 @@
       </div>
     </div>
 
-
     <div class="section" id="golden-rule">
       <div class="col">
         <h2>Zlaté základné pravidlá</h2>
@@ -72,6 +84,129 @@
         <blockquote>
           <p>Každý riadok kódu by mal vyzerať akoby ho písal jeden človek, napriek tomu, že prispievateľov je niekoľko.</p>
         </blockquote>
+      </div>
+    </div>
+
+    <div class="heading" id="atomic">
+      <h2>Atomic design</h2>
+    </div>
+
+    <div class="section" id="preco-atomicky-design">
+      <div class="col">
+        <h3>Prečo používať atomický design?</h3>
+        <ul>
+          <li>Vytvára sa systém, nie jednotlivé stránky.</li>
+          <li>Systém vzniknutých komponent je ľahko znovupoužiteľný, editovateľný, rozširiteľný a kombinovateľný.</li>
+          <li>Neopakujú sa donekonečna tie isté časti css vlastností a niekedy aj kódu.</li>
+          <li>Jednoduchým exportom z css štruktúry vzniká knihovňa komponent, odpadá zložitý proces údržby.</li>
+          <li>Pre UX vzniká možnosť omnoho rýchlejšieho prototypovania.</li>
+          <li>Jednoduchšie pridávanie a odoberanie časti stránok.</li>
+          <li>Jasne vydefinovaný namespace.</li>
+          <li>Proste si predstavte, že sa hráte s legom.</li>
+        </ul>
+        <ul>
+          <li>Krásný príklad použitia atomického designu je redesign České televize: https://www.youtube.com/watch?v=wgsHfAV-6Aw</li>
+          <li>Kniha tvorcu atomického designu http://atomicdesign.bradfrost.com/table-of-contents/</li>
+        </ul>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+    
+    <div class="section" id="atom">
+      <div class="col">
+        <h3>Atom</h3>
+        <ul>
+          <li>Najmenšia a najdoležitejšia stavebná jednotka celého systému.</li>
+          <li>Tvoria ho jednotlivé html tagy (<code>&lt;input&gt;</code>, <code>&lt;fieldset&gt;</code>), ale taktiež abstraktné elementy ako definované základné animácie, definície zarovnania, fontov.</li>
+          <li>Pomenovanie začínam prefixom <code>a-*</code>.</li>
+          <li>Našim príkladom bude <code>&lt;h2&gt;</code> nadpis, <code>&lt;p&gt;</code> perex a <code>&lt;img&gt;</code> obrazek.</li>
+        </ul>
+      </div>
+      <div class="col">
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"a-headline"</span><span class="nt">&gt;</span>Rudí ďáblové ve Španělsku smutnit nebudou<span class="nt">&lt;/h2&gt;</span>
+
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"a-perex"</span><span class="nt">&gt;</span>Úvodní osmifinálový duel Ligy mistrů čeká ve středu Manchester United. Rudí ďáblové se představí na hřišti španělské Sevilly. Potvrdí roli mírného favorita? Martin128 se k tomuto názoru přiklání, byť v opatrnější...
+<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"a-image"</span> <span class="na">src=</span><span class="s">"https://minshara.tipsport.cz/thumb_31535_amT0bxWz_.jpg"</span> <span class="na">alt=</span><span class="s">"Rudí ďáblové ve Španělsku smutnit nebudou"</span><span class="nt">&gt;</span></code></pre></figure>
+      </div>
+    </div>
+
+    <div class="section" id="molecule">
+      <div class="col">
+        <h3>Molekula</h3>
+        <ul>
+          <li>Tvoria je zhluky atomov.</li>
+          <li>Molekulu vždy tvoria alespoň dva html elementy.</li>
+
+          <li>Našim príkladom bude <code>&lt;div&gt;</code>, blok.</li>
+        </ul>
+      </div>
+      <div class="col">
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"m-list"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"m-list__element"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"a-headline m-list__headline"</span><span class="nt">&gt;</span>Rudí ďáblové ve Španělsku smutnit nebudou<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"a-perex m-list__perex"</span><span class="nt">&gt;</span>Úvodní osmifinálový duel Ligy mistrů čeká ve středu Manchester United. Rudí ďáblové se představí na hřišti španělské Sevilly. Potvrdí roli mírného favorita? Martin128 se k tomuto názoru přiklání, byť v opatrnější...<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"a-image m-list__image"</span> <span class="na">src=</span><span class="s">"https://minshara.tipsport.cz/thumb_31535_amT0bxWz_.jpg"</span> <span class="na">alt=</span><span class="s">"Rudí ďáblové ve Španělsku smutnit nebudou"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+      </div>
+    </div>
+
+    <div class="section" id="organism">
+      <div class="col">
+        <h3>Organizmus</h3>
+        <ul>
+          <li>Skladá sa z molekúl, atómov ale aj z iných organismov.</li>
+          <li>Z pohľadu UX je to najviac komplexná stavebná jednotka, predstavuje akúsi sekciu stránky.</li>
+          <li>Organizmus sa može skladať z roznych druhov molekúl. Napríklad "sidebar" sa može skladať z wigetu kurzov, analýz a najnovších príspevkov.</li>
+          <li>Našim príkladom bude <code>&lt;div&gt;</code>, blok.</li>
+        </ul>
+      </div>
+      <div class="col">
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"o-promo"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"m-list o-promo__list"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"m-list__element"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"a-headline m-list__headline"</span><span class="nt">&gt;</span>Rudí ďáblové ve Španělsku smutnit nebudou<span class="nt">&lt;/h2&gt;</span>
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"a-perex m-list__perex"</span><span class="nt">&gt;</span>Úvodní osmifinálový duel Ligy mistrů čeká ve středu Manchester United. Rudí ďáblové se představí na hřišti španělské Sevilly. Potvrdí roli mírného favorita? Martin128 se k tomuto názoru přiklání, byť v opatrnější...<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"a-image m-list__image"</span> <span class="na">src=</span><span class="s">"https://minshara.tipsport.cz/thumb_31535_amT0bxWz_.jpg"</span> <span class="na">alt=</span><span class="s">"Rudí ďáblové ve Španělsku smutnit nebudou"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"m-list__element"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"a-headline m-list__headline"</span><span class="nt">&gt;</span>Ve čtvrtek Berlín, v pátek Praha!<span class="nt">&lt;/h2&gt;</span>
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"a-perex m-list__perex"</span><span class="nt">&gt;</span>Fanoušky šipek čeká zajímavý závěr pracovního týdne. Ve čtvrtek pokračuje Premier League, která poprvé ve své historii zavítá do Německa. O lístky byl neskutečný zájem, byly ihned pryč. O den později dojde také na... <span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"a-image m-list__image"</span> <span class="na">src=</span><span class="s">"https://minshara.tipsport.cz/thumb_29607_gjGU5hmA_.jpg"</span> <span class="na">alt=</span><span class="s">"Ve čtvrtek Berlín, v pátek Praha!"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+      </div>
+    </div>
+
+    <div class="section" id="template">
+      <div class="col">
+        <h3>Šablony</h3>
+        <ul>
+          <li>Reprezentujú šablony bez konkretného obsahu, je to akási kostra stránky.</li>
+          <li>Je to akási prehľad toho ako prvky fungujú spolu na stránke.</li>
+          <li>Osobne mi prijde, že tipsport nie je zložený zo šablon, takže to bude nepoužívaný stavebný prvok.</li>
+        </ul>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+
+    <div class="section" id="page">
+      <div class="col">
+        <h3>Stránky</h3>
+        <ul>
+          <li>Sú posledný stavebný prvok v reálnými datami (napr. obrázky).</li>
+          <li>Väčšina ľudí nerozlišuje rozdieľ medzi šablonou a stránkou. Najlepší reálny príklad mi prijde homepage (šablona) a jej variácia (ne)prihlásený uživateľ (stránka).</li>
+          <li>Uzatváraciu zátvorku nechávajte na samostatnom riadku.</li>
+          <li>Nechajte jednu medzeru za <code>:</code> v každej deklarácií.</li>
+        </ul>
+      </div>
+      <div class="col">
       </div>
     </div>
 
