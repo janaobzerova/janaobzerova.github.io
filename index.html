@@ -93,14 +93,16 @@
 
     <div class="section" id="preco-atomicky-design">
       <div class="col">
-        <h3>Prečo používať atomický design?</h3>
+        <h3>Prečo používať atomický design a čo to vobec je?</h3>
         <ul>
+          <li>Zakladné pomenovanie vychádza z chémie.</li>
           <li>Vytvára sa systém, nie jednotlivé stránky.</li>
           <li>Systém vzniknutých komponent je ľahko znovupoužiteľný, editovateľný, rozširiteľný a kombinovateľný.</li>
-          <li>Neopakujú sa donekonečna tie isté časti css vlastností a niekedy aj kódu.</li>
+          <li>Neopakujú sa donekonečna tie isté časti css vlastností a niekedy aj kódu.ß</li>
           <li>Jednoduchým exportom z css štruktúry vzniká knihovňa komponent, odpadá zložitý proces údržby.</li>
           <li>Pre UX vzniká možnosť omnoho rýchlejšieho prototypovania.</li>
           <li>Jednoduchšie pridávanie a odoberanie časti stránok.</li>
+          <li>Usnadňuje testovanie.</li>
           <li>Jasne vydefinovaný namespace.</li>
           <li>Proste si predstavte, že sa hráte s legom.</li>
         </ul>
@@ -118,6 +120,7 @@
         <h3>Atom</h3>
         <ul>
           <li>Najmenšia a najdoležitejšia stavebná jednotka celého systému.</li>
+          <li>Starajú sa o základnú konzistenciu.</li>
           <li>Tvoria ho jednotlivé html tagy (<code>&lt;input&gt;</code>, <code>&lt;fieldset&gt;</code>), ale taktiež abstraktné elementy ako definované základné animácie, definície zarovnania, fontov.</li>
           <li>Pomenovanie začínam prefixom <code>a-*</code>.</li>
           <li>Našim príkladom bude <code>&lt;h2&gt;</code> nadpis, <code>&lt;p&gt;</code> perex a <code>&lt;img&gt;</code> obrazek.</li>
