@@ -38,7 +38,7 @@
         <h4><a href="#atomic">ATOMIC</a></h4>
         <ul>
           <li><a href="#preco-atomicky-design">Prečo používať atomický design?</a></li>
-          <li><a href="#atom">Atom</a></li>
+          <li><a href="#atom">Atóm</a></li>
           <li><a href="#molecule">Molekula</a></li>
           <li><a href="#organism">Organizmus</a></li>
           <li><a href="#template">Šablony</a></li>
@@ -56,7 +56,7 @@
           <li><a href="#css-prefix-vlastnosti">Prefix- vlastností</a></li>
           <li><a href="#css-kratke-notacie">Krátke notácie</a></li>
           <li><a href="#css-zanorovanie">Zanorovanie v LESSu/SASSu</a></li>
-          <li><a href="#css-operacie">Matematické operácie v LESSe/SASSu</a></li>
+          <li><a href="#css-operacie">Matematické operácie v LESSu/SASSu</a></li>
           <li><a href="#css-nazvy">Názvy</a></li>
           <li><a href="#css-struktura">Štruktúra</a></li>
         </ul>
@@ -78,7 +78,7 @@
     <div class="section" id="golden-rule">
       <div class="col">
         <h2>Zlaté základné pravidlá</h2>
-        <p>S čímkoľvek nesúhlasite, ruku horu.</p>
+        <p>S čímkoľvek nesúhlasite, ruku hore.</p>
       </div>
       <div class="col">
         <blockquote>
@@ -93,16 +93,16 @@
 
     <div class="section" id="preco-atomicky-design">
       <div class="col">
-        <h3>Prečo používať atomický design a čo to vobec je?</h3>
+        <h3>Prečo používať atomický design a čo to vôbec je?</h3>
         <ul>
-          <li>Zakladné pomenovanie vychádza z chémie.</li>
+          <li>Základné pomenovanie vychádza z chémie.</li>
           <li>Vytvára sa systém, nie jednotlivé stránky.</li>
           <li>Systém vzniknutých komponent je ľahko znovupoužiteľný, editovateľný, rozširiteľný a kombinovateľný.</li>
-          <li>Neopakujú sa donekonečna tie isté časti css vlastností a niekedy aj kódu.ß</li>
+          <li>Neopakujú sa donekonečna tie isté časti css vlastností a niekedy aj kódu.</li>
           <li>Jednoduchým exportom z css štruktúry vzniká knihovňa komponent, odpadá zložitý proces údržby.</li>
           <li>Pre UX vzniká možnosť omnoho rýchlejšieho prototypovania.</li>
           <li>Jednoduchšie pridávanie a odoberanie časti stránok.</li>
-          <li>Usnadňuje testovanie.</li>
+          <li>Uľahčuje testovanie.</li>
           <li>Jasne vydefinovaný namespace.</li>
           <li>Proste si predstavte, že sa hráte s legom.</li>
         </ul>
@@ -117,10 +117,10 @@
 
     <div class="section" id="atom">
       <div class="col">
-        <h3>Atom</h3>
+        <h3>Atóm</h3>
         <ul>
-          <li>Najmenšia a najdoležitejšia stavebná jednotka celého systému.</li>
-          <li>Starajú sa o základnú konzistenciu.</li>
+          <li>Najmenšia a najdôležitejšia stavebná jednotka celého systému.</li>
+          <li>Stará sa o základnú konzistenciu.</li>
           <li>Tvoria ho jednotlivé html tagy (<code>&lt;input&gt;</code>, <code>&lt;fieldset&gt;</code>), ale taktiež abstraktné elementy ako definované základné animácie, definície zarovnania, fontov.</li>
           <li>Pomenovanie začínam prefixom <code>a-*</code>.</li>
           <li>Našim príkladom bude <code>&lt;h2&gt;</code> nadpis, <code>&lt;p&gt;</code> perex a <code>&lt;img&gt;</code> obrazek.</li>
@@ -140,9 +140,9 @@
       <div class="col">
         <h3>Molekula</h3>
         <ul>
-          <li>Tvoria je zhluky atomov.</li>
+          <li>Tvoria ju zhluky atomov.</li>
           <li>Molekulu vždy tvoria alespoň dva html elementy.</li>
-
+          <li>Pomenovanie začínam prefixom <code>m-*</code>.</li>
           <li>Našim príkladom bude <code>&lt;div&gt;</code>, blok.</li>
         </ul>
       </div>
@@ -161,9 +161,10 @@
       <div class="col">
         <h3>Organizmus</h3>
         <ul>
-          <li>Skladá sa z molekúl, atómov ale aj z iných organismov.</li>
+          <li>Skladá sa z molekúl, atómov ale aj z iných organizmov.</li>
           <li>Z pohľadu UX je to najviac komplexná stavebná jednotka, predstavuje akúsi sekciu stránky.</li>
-          <li>Organizmus sa može skladať z roznych druhov molekúl. Napríklad "sidebar" sa može skladať z wigetu kurzov, analýz a najnovších príspevkov.</li>
+          <li>Organizmus sa môže skladať z rôznych druhov molekúl. Napríklad "sidebar" sa môže skladať z wigetu kurzov, analýz a najnovších príspevkov.</li>
+          <li>Pomenovanie začínam prefixom <code>o-*</code>.</li>
           <li>Našim príkladom bude <code>&lt;div&gt;</code>, blok.</li>
         </ul>
       </div>
@@ -190,9 +191,10 @@
       <div class="col">
         <h3>Šablony</h3>
         <ul>
-          <li>Reprezentujú šablony bez konkretného obsahu, je to akási kostra stránky.</li>
-          <li>Je to akási prehľad toho ako prvky fungujú spolu na stránke.</li>
-          <li>Osobne mi prijde, že tipsport nie je zložený zo šablon, takže to bude nepoužívaný stavebný prvok.</li>
+          <li>Reprezentujú stránky bez konkretného obsahu, je to akási kostra stránky.</li>
+          <li>Je to prehľad toho ako prvky fungujú spolu na stránke.</li>
+          <li>Osobne mi prijde, že tipsport nie je zložený zo šablon, takže to bude najmenej používaný stavebný prvok.</li>
+          <li>Pomenovanie začínam prefixom <code>t-*</code>.</li>
         </ul>
       </div>
       <div class="col">
