@@ -424,12 +424,14 @@
       <div class="col">
         <h3>Zanorovanie v LESSu/SASSu</h3>
         <p>BEM podporuje flat štruktúru, takže zanorovanie ako také neexistuje, aj keď to na prvý pohľad tak vyzerá.</p>
+        <p>Ak je nutnosť prebitia vlastností, daná vlastnosť sa prebíja v konkretnom súbore.</p>
         <ul>
           <li>Blok</li>
           <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">Pseudo-triedy</a> (tj. <code>:hover</code>/<code>:focus</code>/<code>:active</code>/<code>:link</code>/<code>:visited</code>/<code>:empty</code>/<code>:not</code>)</li>
           <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">Pseudo-elementy</a> (tj. <code>:before</code>/<code>:after</code>/<code>:placeholder</code>/<code>:first-line</code>)</a></li>
           <li>Modifikátor</li>
           <li>Element</li>
+          <li>Výnimočne nový element</li>
         </ul>
       </div>
       <div class="col">
@@ -463,6 +465,11 @@
       <span class="err">...</span>
     <span class="p">}</span>
   <span class="p">}</span>
+
+  <span class="nc">.prebíjaná vlastnosť &amp;</span> <span class="p">{</span>
+    <span class="err">...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
       </div>
     </div>
